@@ -29,11 +29,13 @@ public class BrowserUtil {
         Driver.getDriver().switchTo().window(origin);
     }
 
+
     public static void selectByVisibleText(WebElement element,String option){
 
         Select select=new Select(element);
         select.selectByVisibleText(option);
     }
+
 
     /**
      * Moves the mouse to given element
@@ -44,6 +46,7 @@ public class BrowserUtil {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(element).perform();
     }
+
 
     /**
      * return a list of string from a list of elements
@@ -58,6 +61,7 @@ public class BrowserUtil {
         }
         return elemTexts;
     }
+
 
     /**
      * Extracts text from list of elements matching the provided locator into new List<String>
@@ -76,6 +80,7 @@ public class BrowserUtil {
         return elemTexts;
     }
 
+
     /**
      * Performs a pause
      *
@@ -89,6 +94,7 @@ public class BrowserUtil {
         }
     }
 
+
     /**
      * Waits for the provided element to be visible on the page
      *
@@ -100,6 +106,7 @@ public class BrowserUtil {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeToWaitInSec);
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
 
     /**
      * Waits for element matching the locator to be visible on the page
@@ -113,6 +120,7 @@ public class BrowserUtil {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+
     /**
      * Waits for provided element to be clickable
      *
@@ -125,6 +133,7 @@ public class BrowserUtil {
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+
     /**
      * Waits for element matching the locator to be clickable
      *
@@ -136,6 +145,7 @@ public class BrowserUtil {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
 
     /**
      * waits for backgrounds processes on the browser to complete
@@ -156,6 +166,7 @@ public class BrowserUtil {
         }
     }
 
+
     /**
      * Verifies whether the element matching the provided locator is displayed on page
      *
@@ -171,6 +182,7 @@ public class BrowserUtil {
 
         }
     }
+
 
     /**
      * Verifies whether the element matching the provided locator is NOT displayed on page
@@ -256,6 +268,7 @@ public class BrowserUtil {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+
     /**
      * Performs double click action on an element
      *
@@ -264,6 +277,7 @@ public class BrowserUtil {
     public static void doubleClick(WebElement element) {
         new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
+
 
     /**
      * Changes the HTML attribute of a Web Element to the given value using JavaScript
@@ -276,6 +290,7 @@ public class BrowserUtil {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", element, attributeName, attributeValue);
     }
 
+
     /**
      * Highlighs an element by changing its background and border color
      * @param element
@@ -285,6 +300,7 @@ public class BrowserUtil {
         waitFor(1);
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].removeAttribute('style', 'background: yellow; border: 2px solid red;');", element);
     }
+
 
     /**
      * Checks or unchecks given checkbox
@@ -304,6 +320,7 @@ public class BrowserUtil {
         }
     }
 
+
     /**
      * attempts to click on provided element until given time runs out
      *
@@ -321,6 +338,7 @@ public class BrowserUtil {
         }
     }
 
+
     /**
      * executes the given JavaScript command on given web element
      *
@@ -331,6 +349,7 @@ public class BrowserUtil {
         jse.executeScript(command, element);
 
     }
+
 
     /**
      * executes the given JavaScript command on given web element
@@ -372,6 +391,7 @@ public class BrowserUtil {
         }
     }
 
+
     /**
      *  checks that an element is present on the DOM of a page. This does not
      *    * necessarily mean that the element is visible.
@@ -381,7 +401,6 @@ public class BrowserUtil {
     public static void waitForPresenceOfElement(By by, long time) {
         new WebDriverWait(Driver.getDriver(), time).until(ExpectedConditions.presenceOfElementLocated(by));
     }
-
 
 
     public static List<String> getAllSelectOptions(WebElement element){
