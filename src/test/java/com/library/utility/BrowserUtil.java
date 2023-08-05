@@ -28,6 +28,7 @@ public class BrowserUtil {
         }
         Driver.getDriver().switchTo().window(origin);
     }
+
     public static void selectByVisibleText(WebElement element,String option){
 
         Select select=new Select(element);
